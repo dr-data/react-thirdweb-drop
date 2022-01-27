@@ -13,18 +13,18 @@ const DropClaim = () => {
     return undefined;
   }, [provider]);
 
-  const dropModule = useMemo(() => {
+  const bundleDropModule = useMemo(() => {
     if (sdk) {
-      return sdk.getDropModule("0xDF2011Fb01d74B3f460948646252F03c7eF1f8b7")
+      return sdk.getBundleDropModule("0xDF2011Fb01d74B3f460948646252F03c7eF1f8b7")
     }
     return undefined;
   }, [sdk]);
 
   const onClick = useCallback(() => {
     
-    dropModule.claim(1);
+    bundleDropModule.claim(0, 1);
 
-  }, [dropModule]);
+  }, [bundleDropModule]);
 
   return (
     <div>
@@ -32,7 +32,7 @@ const DropClaim = () => {
         
         </br>
       <button style={{ padding: "10px 20px", textAlign: "center",  backgroundColor: "#44014C" , color: "white"}}class="btn" onClick={onClick}>
-        Claim single Drop!
+        Claim normal Drop!
       </button>
     </div>
   );
